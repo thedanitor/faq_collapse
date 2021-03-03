@@ -1,22 +1,101 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
 
 * {
-    /* width not affected by padding or border */
-    box-sizing: border-box;
+  /* width not affected by padding or border */
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Roboto", sans-serif;
-    display: flex;
-    flex-direction: column;
-    /* Centered horizontally */
-    align-items: center; 
-    /* Centered vertically on 100% viewport */
-    justify-content: center;
-    /* 100% viewport height  */
-    height: 100vh;
-    /* don't want scrollbars  */
-    overflow: hidden;
-    /* no margins  */
-    margin: 0;
+  font-family: "Muli", sans-serif;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  /* 50px top | none on sides | 30px bottom  */
+  margin: 50px 0 30px;
+  /* center text */
+  text-align: center;
+}
+
+.faq-container {
+  /* container width not to exceed 600px */
+  max-width: 600px;
+  /* none for top/bottom | auto for sides (which centers it) */
+  margin: 0 auto;
+}
+
+.faq {
+  /* leave non-active faq transparent */
+  background-color: transparent;
+  /* 1px solid border all around */
+  border: 1px solid #9fa4a8;
+  /* rounded corners */
+  border-radius: 10px;
+  /* 20px top/bottom | none on sides  */
+  margin: 20px 0;
+  /* 30px all around */
+  padding: 30px;
+  /* want to position children absolute */
+  position: relative;
+  /* want to be able to hide text */
+  overflow: hidden;
+  /* for any transitionable properties */
+  transition: 0.3s ease;
+}
+
+/* when faq has active class */
+.faq.active {
+  background-color: #fff;
+  /* offset-x | offset-y | blur-radius | color  x2*/
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* before and after faq.active */
+.faq.active::before,
+.faq.active::after {
+  /* font awesome unicode for comment icon (needs to start with backslash) */
+  content: "\f075";
+  /* need to include this font family for unicode to work */
+  font-family: "Font Awesome 5 Free";
+  color: #2ecc71;
+  opacity: 0.2;
+  /* 7x root html size (7 x 16px = 112px) */
+  font-size: 7rem;
+  /* so we can specify exactly where to position */
+  position: absolute;
+  /* both before and after positioned 20px from top and left */
+  top: 20px;
+  left: 20px;
+  /* make sure it is behind everything else */
+  z-index: 0;
+}
+
+/* BEFORE only */
+.faq.active::before {
+  /* change color from greenish to blueish */
+  color: #3498db;
+  /* move up 10px (already positioned absolute) */
+  top: -10px;
+  /* move left -30px (moves right 30px) */
+  left: -30px;
+  /* rotate 180 degrees */
+  transform: rotateY(180deg);
+}
+
+.faq-title {
+  /* 0 top | 35px right | 0 bottom | 0 left */
+  margin: 0 35px 0 0;
+}
+
+.faq-text {
+  /* don't show unless .active  */
+  display: none;
+  /* 30px top | 0 sides | 0 bottom  */
+  margin: 30px 0 0;
+}
+
+/* faq-text when faq is active  */
+.faq.active .faq-text {
+  /* display text  */
+  display: block;
 }
