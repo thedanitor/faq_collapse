@@ -12,3 +12,5 @@ This project is from the Day 12 code along video from Udemy's 50 projects in 50 
 
 * Content property can be used to add content in CSS
 * Can use unicode values for icons from fontawesome to add in CSS
+* Can target the parent node of an element with .parentNode
+* Can toggle classes using classList.toggle()
