@@ -6,7 +6,7 @@ This project is from the Day 12 code along video from Udemy's 50 projects in 50 
 
 ### Overall Impression
 
-
+Simple, yet fun project where I learned some new tricks with CSS and targeting parent nodes in JS.
 
 ### Things Learned
 
